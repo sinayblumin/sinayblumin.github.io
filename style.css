@@ -1,0 +1,173 @@
+/* ============================================
+   sinayblumin.com — Academic & Scholarly Theme
+   ============================================ */
+
+/* --- Variables & Reset --- */
+:root {
+    --bg-color: #0b0c10;
+    /* Deep obsidian/ink black */
+    --text-primary: #ededed;
+    /* Bright off-white for main heading */
+    --text-secondary: #a8a8a8;
+    /* Muted ash-grey for tagline */
+    --text-tertiary: #5e5e5e;
+    /* Dimmer subtle accents */
+    --accent-color: hsl(147, 100%, 17%);
+    /* Elegant gold/champagne accent for hovers */
+    --divider-color: #333333;
+    /* Dark subtle line color */
+
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: 2rem;
+}
+
+::selection {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* --- Layout & Container --- */
+.container {
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Hero Section & Typography --- */
+.hero {
+    margin-bottom: 2.5rem;
+}
+
+.portrait {
+    width: 156px;
+    height: 156px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.8rem;
+    border: 1px solid var(--divider-color);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease;
+}
+
+.portrait:hover {
+    transform: scale(1.02);
+}
+
+.name {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+}
+
+.tagline {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.tagline span {
+    font-weight: 200;
+    color: var(--text-tertiary);
+    margin: 0 0.4em;
+}
+
+/* An elegant dividing line under the header */
+.divider {
+    width: 60px;
+    height: 1px;
+    background-color: var(--divider-color);
+    margin: 2.5rem auto 0;
+}
+
+/* --- Social Navigation --- */
+.social-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.social-link svg {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-link:hover,
+.social-link:focus {
+    color: var(--accent-color);
+    outline: none;
+}
+
+.social-link:hover svg,
+.social-link:focus svg {
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .social-nav {
+        gap: 1.5rem;
+    }
+
+    .name {
+        letter-spacing: 0;
+    }
+}
